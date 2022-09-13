@@ -5,6 +5,8 @@ on:
     branches: [ "main","siva" ]
   pull_request:
     branches: [ "main","siva" ]
+  discussion:
+    types: [created, edited, answered]
 
 jobs:
   build:
