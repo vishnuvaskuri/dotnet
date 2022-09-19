@@ -1,3 +1,4 @@
 #!/bin/bash
-sed "s/buildNumber/$1/g" task.json > task-new.json
+sed "s/cnumber/$1/g" deployment.yml > deployment-new.yml
+
 
