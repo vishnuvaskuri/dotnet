@@ -49,7 +49,7 @@ pipeline {
                   ./changebuildnumber.sh $BUILD_NUMBER
                   aws eks --region ap-south-1 update-kubeconfig --name k8
                   cat deployment.yml
-                  kubectl apply -f  deployment.yml
+                  kubectl apply -f  deployment-new.yml
                   kubectl get pods 
                   '''
 
