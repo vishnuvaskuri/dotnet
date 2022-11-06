@@ -39,22 +39,22 @@ pipeline {
      }   
    }
 	 
-    stage('Deploy  K8'){
-            steps {
-                 sh '''
-                  export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-                  export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-                  export AWS_DEFAULT_REGION=us-east-1
-		  chmod +x changebuildnumber.sh
-                  ./changebuildnumber.sh $BUILD_NUMBER
-                  aws eks --region ap-south-1 update-kubeconfig --name k8
-                  cat deployment.yml
-                  kubectl apply -f  deployment-new.yml
-                  kubectl get pods 
-                  '''
+//     stage('Deploy  K8'){
+//             steps {
+//                  sh '''
+//                   export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+//                   export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+//                   export AWS_DEFAULT_REGION=us-east-1
+// 		  chmod +x changebuildnumber.sh
+//                   ./changebuildnumber.sh $BUILD_NUMBER
+//                   aws eks --region ap-south-1 update-kubeconfig --name k8
+//                   cat deployment.yml
+//                   kubectl apply -f  deployment-new.yml
+//                   kubectl get pods 
+//                   '''
 
-            }
-        }
+//             }
+//         }
  
 //     stage('ecs deploy') {
 //       steps {
