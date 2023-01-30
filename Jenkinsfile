@@ -31,30 +31,30 @@ pipeline {
          aws configure set aws_secret_access_key $secret_key
          aws configure set default.region ap-south-1
          DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region ap-south-1)
-         docker login -u AWS -p $DOCKER_LOGIN_PASSWORD https://163883842588.dkr.ecr.ap-south-1.amazonaws.com
-	 docker build -t 163883842588.dkr.ecr.ap-south-1.amazonaws.com/koya:SAMPLE-PROJECT-${BUILD_NUMBER} .
-	 docker push 163883842588.dkr.ecr.ap-south-1.amazonaws.com/koya:SAMPLE-PROJECT-${BUILD_NUMBER}
+         docker login -u AWS -p $DOCKER_LOGIN_PASSWORD https://974278632475.dkr.ecr.ap-south-1.amazonaws.com
+	 docker build -t 974278632475.dkr.ecr.ap-south-1.amazonaws.com/siva:SAMPLE-PROJECT-${BUILD_NUMBER} .
+	 docker push 974278632475.dkr.ecr.ap-south-1.amazonaws.com/siva:SAMPLE-PROJECT-${BUILD_NUMBER}
           
 	  '''
      }   
    }
 	 
-    stage('Deploy  K8'){
-            steps {
-                 sh '''
-                  export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-                  export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-                  export AWS_DEFAULT_REGION=us-east-1
-		  chmod +x changebuildnumber.sh
-                  ./changebuildnumber.sh $BUILD_NUMBER
-                  aws eks --region ap-south-1 update-kubeconfig --name koya
-                  cat deployment.yml
-                  kubectl apply -f  deployment-new.yml
-                  kubectl get pods 
-                  '''
+//     stage('Deploy  K8'){
+//             steps {
+//                  sh '''
+//                   export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+//                   export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+//                   export AWS_DEFAULT_REGION=us-east-1
+// 		  chmod +x changebuildnumber.sh
+//                   ./changebuildnumber.sh $BUILD_NUMBER
+//                   aws eks --region ap-south-1 update-kubeconfig --name koya
+//                   cat deployment.yml
+//                   kubectl apply -f  deployment-new.yml
+//                   kubectl get pods 
+//                   '''
 
-            }
-        }
+//             }
+//         }
  
 //     stage('ecs deploy') {
 //       steps {
