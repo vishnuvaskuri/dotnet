@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: k8-project-app
-        image: 163883842588.dkr.ecr.ap-south-1.amazonaws.com/koya:SAMPLE-PROJECT-cnumber
+        image: 738494208482.dkr.ecr.us-west-1.amazonaws.com/sri:SAMPLE-PROJECT-cnumber
         imagePullPolicy: Always
         ports:
         - containerPort: 80
