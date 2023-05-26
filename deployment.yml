@@ -1,46 +1,88 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: k8
+#   labels:
+#     app: k8-app
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: k8-app
+#   template:
+#     metadata:
+#       labels:
+#         app: k8-app
+#     spec:
+#       containers:
+#       - name: k8-project-app
+#         image: 579621469191.dkr.ecr.ap-south-1.amazonaws.com/sivakrishna:SAMPLE-PROJECT-cnumber
+#         imagePullPolicy: Always
+#         ports:
+#         - containerPort: 80
+#         env:
+#         - name: ASPNETCORE_ENVIRONMENT
+#           value: "Development"
+          
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
-  name: k8
+
+  name: nginx-deployment
+
   labels:
-    app: k8-app
+
+    app: nginx
+
 spec:
+
   replicas: 3
+
   selector:
+
     matchLabels:
-      app: k8-app
+
+      app: nginx
+
   template:
+
     metadata:
+
       labels:
-        app: k8-app
+
+        app: nginx
+
     spec:
+
       containers:
-      - name: k8-project-app
+
+      - name: nginx
+
         image: 579621469191.dkr.ecr.ap-south-1.amazonaws.com/sivakrishna:SAMPLE-PROJECT-cnumber
-        imagePullPolicy: Always
+
         ports:
+
         - containerPort: 80
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: "Development"
         
         
         
  # service type loadbalancer       
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: k8-app
-    k8s-app: k8-app
-  name: k8-app
-spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  type: LoadBalancer
-  selector:
-    app: k8-app
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     app: k8-app
+#     k8s-app: k8-app
+#   name: k8-app
+# spec:
+#   ports:
+#   - name: http
+#     port: 80
+#     protocol: TCP
+#     targetPort: 80
+#   type: LoadBalancer
+#   selector:
+#     app: k8-app
