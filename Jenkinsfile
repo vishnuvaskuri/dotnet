@@ -44,10 +44,10 @@ pipeline {
                  sh '''
                   export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
                   export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-                  export AWS_DEFAULT_REGION=us-west-1
+                  export AWS_DEFAULT_REGION=ap-south-1
 		  chmod +x changebuildnumber.sh
                   ./changebuildnumber.sh $BUILD_NUMBER
-                  aws eks --region us-west-1 update-kubeconfig --name sri
+                  aws eks --region ap-south-1 update-kubeconfig --name siva
                   cat deployment.yml
                   kubectl apply -f  deployment-new.yml
                   kubectl get pods 
