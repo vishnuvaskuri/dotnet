@@ -29,11 +29,11 @@ pipeline {
 	 echo $secret_key
          aws configure set aws_access_key_id $access_key
          aws configure set aws_secret_access_key $secret_key
-         aws configure set default.region ap-south-1
+         aws configure set default.region eu-central-1
          DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region ap-south-1)
-         docker login -u AWS -p $DOCKER_LOGIN_PASSWORD 666433429335.dkr.ecr.ap-south-1.amazonaws.com
-	 docker build -t 666433429335.dkr.ecr.ap-south-1.amazonaws.com/siva:SAMPLE-PROJECT-${BUILD_NUMBER} .
-	 docker push 666433429335.dkr.ecr.ap-south-1.amazonaws.com/siva:SAMPLE-PROJECT-${BUILD_NUMBER}
+         docker login -u AWS -p $DOCKER_LOGIN_PASSWORD 541653326951.dkr.ecr.eu-central-1.amazonaws.com
+	 docker build -t 541653326951.dkr.ecr.eu-central-1.amazonaws.com/siva:SAMPLE-PROJECT-${BUILD_NUMBER} .
+	 docker push 541653326951.dkr.ecr.eu-central-1.amazonaws.com/siva:SAMPLE-PROJECT-${BUILD_NUMBER}
           
 	  '''
      }   
