@@ -7,8 +7,8 @@ phases:
       - aws --version
       - echo "aws"
       - REPOSITORY_URI=170825985921.dkr.ecr.ap-south-1.amazonaws.com/siva
-      - DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region ap-south-1)
-      - docker login -u AWS -p $DOCKER_LOGIN_PASSWORD https://170825985921.dkr.ecr.ap-south-1.amazonaws.com
+      - DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region eu-central-1)
+      - docker login -u AWS -p $DOCKER_LOGIN_PASSWORD 541653326951.dkr.ecr.eu-central-1.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
